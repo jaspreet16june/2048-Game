@@ -8,15 +8,46 @@ body{
 }
 .grid{
    
-    width: 500px;
-    height:500px;
-    background-color: navy;
+    width: 24rem;
+    height:24rem;
+    background-color: #bbada0;
     position: absolute;
     top:50%;
     left:50%;
-    margin-top: -250px;
-    margin-left:-250px;
+    margin-top: -12.5rem;
+    margin-left: -12.5rem;
     display: flex;
     flex-wrap:wrap;
     border-radius: 4px;
+}
+.score-container{
+    width: 6.1rem;
+    height: 3rem;
+    border-radius: 3px;
+    background-color: #bbada0;
+    position: fixed;
+    top: 50%;
+    margin-top: -15.7rem;
+    left: 50%;
+    margin-left: 5.4rem;
+    flex-direction: column;
+}
+.score{
+    font-size: 1.5rem;
+    color:white;
+    text-align: center;
+}
+.score-title{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 1rem;
+}
+.small-square{
+    width: 5.5rem;
+    height: 5.5rem;
+    background-color: rgba(238, 228, 218, 0.61);
+    font-size: 45px;
+    margin-top: 4px;
+    padding: 18px 32px;
+    margin-left: 6px
 }
