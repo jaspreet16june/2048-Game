@@ -5,6 +5,10 @@
 body{
     margin:0;
     padding:0;
+    
+    background-color: #e5e5f7;
+opacity: 0.8;
+background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 10px ), repeating-linear-gradient( #b0a77a55, #b0a77a );
 }
 .grid{
         width: 24rem;
@@ -12,7 +16,7 @@ body{
         background-color: #bbada0;
         position: absolute;
         top: 50%;
-        left: 50%;
+        left: 31%;
         margin-top: -12.5rem;
         margin-left: -12.5rem;
         display: flex;
@@ -31,7 +35,7 @@ body{
     position: fixed;
     top: 50%;
     margin-top: -15.7rem;
-    left: 50%;
+    left: 31%;
     margin-left: 5.4rem;
     flex-direction: column;
 }
@@ -49,11 +53,19 @@ body{
     width: 5.5rem;
     height: 5.5rem;
     background-color: rgba(238, 228, 218, 0.61);
-    font-size: 45px;
+    font-size: 38px;
     margin-top: 4px;
-    padding: 18px 32px;
+    padding: 25px 24px;
     margin-left: 6px;
     border-radius: 8px;
+    text-align: center;
 }
+.result{
+    font-size: 5rem;
+    position: fixed;
+    right: 24rem;
+    top: 18rem;
+}
+
 
 

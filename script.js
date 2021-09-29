@@ -4,8 +4,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     const gridDisplay = document.querySelector(".grid");
     const scoreCont = document.querySelector(".score-container");
     const scoreDisplay = document.querySelector(".score");
+    const resultDisplay = document.querySelector(".result");
     let squares = [];
     let width = 4;
+    let score = 0;
     function createGrid(){
         for(let  i = 0; i < width*width ;i++){
             let square = document.createElement('div');
@@ -25,6 +27,9 @@ document.addEventListener("DOMContentLoaded",()=>{
         let randomNumber = Math.floor(Math.random() * squares.length);
         if(squares[randomNumber].innerHTML == 0){
             squares[randomNumber].innerHTML = 2;
+            
+            checkForLose();
+
         }else generate();
     }
 
@@ -90,8 +95,13 @@ document.addEventListener("DOMContentLoaded",()=>{
                 let combineTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+1].innerHTML)
                 squares[i].innerHTML = combineTotal;
                 squares[i+1].innerHTML = 0;
+               
+                score += combineTotal;
+                scoreDisplay.innerHTML = score;
+
             }
         }
+        checkForWin();
     }
     function moveDown(){
         for(let i = 0 ;i < 4;i++){
@@ -150,8 +160,11 @@ document.addEventListener("DOMContentLoaded",()=>{
                 let combineTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+width].innerHTML)
                 squares[i].innerHTML = combineTotal;
                 squares[i+width].innerHTML = 0;
+                score += combineTotal;
+                scoreDisplay.innerHTML = score; 
             }
         }
+        checkForWin();
     }
     function control(e){
         if(e.keyCode === 39){
@@ -179,12 +192,13 @@ document.addEventListener("DOMContentLoaded",()=>{
         moveleft();
         generate();
         }
+    
     function keyUp(){
         moveUp();
         combineCol();
         moveUp();
         generate();
-    }
+        }
     function keyDown(){
         moveDown();
         combineCol();
@@ -192,6 +206,26 @@ document.addEventListener("DOMContentLoaded",()=>{
         generate();
     }
 
+    function checkForWin(){
+        for(let i = 0 ;i<squares.length;i++){
+            if(squares[i].innerHTML == 2048){
+               resultDisplay.innerHTML = 'You Win 💖😁';
+               document.removeEventListener('keyup',control);
+            }
+        }
+    }
 
+    function checkForLose(){
+        let zero = 0
+        for(let i = 0;i < squares.length ;i++){
+            if(squares[i].innerHTML == 0){
+                zero++;
+            }
+        }
+        if(zero === 0){
+            resultDisplay.innerHTML = 'You Lose 💔🥵';
+            document.removeEventListener('keyup',control);
+        }
+    }
 })
 
