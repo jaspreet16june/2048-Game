@@ -14,7 +14,49 @@ document.addEventListener("DOMContentLoaded",()=>{
             gridDisplay.append(square);
             squares.push(square);
         }
+        generate();
+        generate();
+
     }
     createGrid();
 
+    //for generating random number in the grid
+    function generate(){
+        let randomNumber = Math.floor(Math.random() * squares.length);
+        if(squares[randomNumber].innerHTML == 0){
+            squares[randomNumber].innerHTML = 2;
+        }else generate();
+    }
+
+    function moveRight(){
+        for(let i = 0 ;i < 16;i++){
+            if( i % 4 === 0){
+                let totalOne = squares[i].innerHTML;
+                let totalTwo = squares[i+1].innerHTML;
+                let totalThree = squares[i+2].innerHTML;
+                let totalFour = squares[i+3].innerHTML;
+
+                let row = [parseInt(totalOne) , parseInt(totalTwo) ,parseInt(totalThree) , parseInt(totalFour)];
+                
+                let filterArray  = row.filter(num => num);
+               
+                let missing = 4 - filterArray.length;
+                let zeros = Array(missing).fill(0);
+
+                let newRow = zeros.concat(filterArray);
+                console.log(newRow)
+               
+                squares[i].innerHTML = newRow[0];
+                squares[i+1].innerHTML = newRow[1];
+                squares[i+2].innerHTML = newRow[2];
+                squares[i+3].innerHTML = newRow[3];
+
+            }
+        }
+    }
+    moveRight();
+
+    
+    
 })
+

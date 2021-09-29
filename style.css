@@ -7,18 +7,21 @@ body{
     padding:0;
 }
 .grid{
-   
-    width: 24rem;
-    height:24rem;
-    background-color: #bbada0;
-    position: absolute;
-    top:50%;
-    left:50%;
-    margin-top: -12.5rem;
-    margin-left: -12.5rem;
-    display: flex;
-    flex-wrap:wrap;
-    border-radius: 4px;
+        width: 24rem;
+        height: 24rem;
+        background-color: #bbada0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -12.5rem;
+        margin-left: -12.5rem;
+        display: flex;
+        padding-bottom: 5px;
+        padding-top: 3px;
+        flex-wrap: wrap;
+        padding-left: 2px;
+        padding-right: 4px;
+        border-radius: 4px;
 }
 .score-container{
     width: 6.1rem;
@@ -49,5 +52,8 @@ body{
     font-size: 45px;
     margin-top: 4px;
     padding: 18px 32px;
-    margin-left: 6px
+    margin-left: 6px;
+    border-radius: 8px;
 }
+
+
